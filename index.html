@@ -3,347 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Holding - Elite Corporate Presence</title>
+    <title>Global Holding - Enterprise Management</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Temel yapi ayarlar */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #020617;
             color: #94a3b8;
-            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* Yazi secme ve temizlik */
+        /* Temiz secim ve yazi ayari */
         ::selection {
-            background-color: rgba(56, 189, 248, 0.2);
+            background-color: rgba(14, 165, 233, 0.2);
             color: #f1f5f9;
         }
 
         .text-focus {
             color: #f1f5f9;
-            text-decoration: none !important;
         }
 
-        /* Gelismis resim konteynerlari */
-        .img-container {
-            overflow: hidden;
-            border-radius: 4px;
-            background-color: #0f172a;
+        /* Sayfa gecisleri */
+        .page-view {
+            display: none;
+        }
+        .page-view.active {
+            display: block;
+        }
+
+        /* Kart tasarimlari */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(30, 41, 59, 0.5);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: #0ea5e9;
+        }
+
+        /* Admin stats */
+        .stat-glow {
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.1);
+        }
+
+        /* Animasyonlu alt cizgi */
+        .nav-hover {
             position: relative;
         }
-
-        .img-container img {
-            transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-            opacity: 0.6;
-        }
-
-        .img-container:hover img {
-            transform: scale(1.1);
-            opacity: 0.9;
-        }
-
-        /* Kart ve bolum sıkılastirma */
-        .section-ultra-tight {
-            padding: 40px 0;
-        }
-
-        .corporate-card {
-            background: #0f172a;
-            border: 1px solid #1e293b;
-            padding: 2rem;
-            transition: all 0.4s ease;
-        }
-
-        .corporate-card:hover {
-            border-color: #0ea5e9;
-            background: #1e293b;
-            transform: translateY(-4px);
-        }
-
-        /* Tarihce cizgisi */
-        .timeline-item::before {
+        .nav-hover::after {
             content: '';
             position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
             left: 0;
-            top: 0;
-            height: 100%;
-            width: 1px;
-            background: #1e293b;
+            background: #0ea5e9;
+            transition: width 0.3s;
+        }
+        .nav-hover:hover::after {
+            width: 100%;
         }
 
-        /* Kaydirma cubugu */
-        ::-webkit-scrollbar {
-            width: 4px;
+        /* GitHub Logo Donus Efekti */
+        .github-float {
+            animation: float 3s ease-in-out infinite;
         }
-        ::-webkit-scrollbar-track {
-            background: #020617;
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #020617; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <!-- Global Navigasyon -->
-    <nav class="w-full px-10 py-4 sticky top-0 bg-[#020617]/90 backdrop-blur-xl z-[100] border-b border-slate-800/50">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-7 h-7 bg-sky-500 rounded flex items-center justify-center font-black text-white text-xs shadow-lg shadow-sky-500/20">GH</div>
-                <div class="text-focus font-extrabold tracking-tighter text-lg">GLOBAL HOLDING</div>
-            </div>
-            
-            <div class="hidden xl:flex space-x-8 uppercase font-bold text-[10px] tracking-[0.2em]">
-                <a href="#about" class="text-slate-400 hover:text-sky-400 transition-colors">Kurumsal</a>
-                <a href="#sectors" class="text-slate-400 hover:text-sky-400 transition-colors">Sektorler</a>
-                <a href="#leadership" class="text-slate-400 hover:text-sky-400 transition-colors">Yonetim</a>
-                <a href="#investor" class="text-sky-500 hover:text-sky-300 transition-colors">Investor</a>
-                <a href="#contact" class="px-5 py-2 border border-slate-700 hover:border-sky-500 transition-all rounded text-focus">Iletisim</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero / Ana Giris -->
-    <header id="about" class="py-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-sky-950/20 via-slate-950 to-slate-950">
-        <div class="container mx-auto px-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                <div class="space-y-8">
-                    <div class="inline-flex items-center space-x-2 px-3 py-1 bg-sky-500/10 border border-sky-500/20 rounded text-[9px] text-sky-400 font-black uppercase tracking-[0.3em]">Fortune 500 Member</div>
-                    <h1 class="text-6xl lg:text-8xl font-black text-focus leading-[0.95] tracking-tightest">
-                        Gelecegi <br> <span class="text-sky-500">Yonetiyoruz.</span>
-                    </h1>
-                    <p class="text-base text-slate-400 max-w-md leading-relaxed">
-                        Bes kitada, enerji, finans ve yuksek teknoloji odakli yatirimlarimizla kuresel refahin mimarlarindan biriyiz.
-                    </p>
-                    <div class="flex items-center space-x-6 pt-4">
-                        <button class="bg-white text-black px-8 py-3 font-bold text-xs uppercase tracking-widest hover:bg-sky-500 hover:text-white transition-all">Sirket Profili</button>
-                        <button class="text-focus border-b border-slate-700 pb-1 text-xs font-bold uppercase tracking-widest hover:border-sky-500 transition-colors">Video Sunum</button>
-                    </div>
+    <!-- ANA SAYFA GORUNUMU (Sadece kurumsal icerik) -->
+    <main id="main-view" class="page-view active">
+        <!-- Navigasyon -->
+        <nav class="sticky top-0 z-[100] bg-slate-950/80 backdrop-blur-md border-b border-slate-900 px-8 py-4">
+            <div class="container mx-auto flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-sky-600 rounded-sm flex items-center justify-center font-black text-white">G</div>
+                    <span class="text-focus font-extrabold tracking-tighter text-xl uppercase">Global Holding</span>
                 </div>
-                <div class="relative">
-                    <div class="img-container aspect-square shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80" alt="Merkez Ofis Dis Cephe" class="w-full h-full object-cover">
+                <div class="hidden lg:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+                    <a href="#sectors" class="nav-hover text-slate-400 hover:text-white">Faaliyetler</a>
+                    <a href="#innovation" class="nav-hover text-slate-400 hover:text-white">Inovasyon</a>
+                    <a href="#hr" class="nav-hover text-slate-400 hover:text-white">Kariyer</a>
+                    <a href="#compliance" class="nav-hover text-slate-400 hover:text-white">Uyum</a>
+                    <a href="#investor" class="text-sky-500">Yatirimci Iliskileri</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="relative h-[80vh] flex items-center px-8 overflow-hidden">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-20"></div>
+            <div class="container mx-auto relative z-10">
+                <div class="max-w-4xl space-y-8">
+                    <div class="h-1 w-20 bg-sky-500"></div>
+                    <h1 class="text-7xl lg:text-9xl font-black text-focus leading-none tracking-tighter">SINIRLARI <br> ASAN <span class="text-sky-500">GUC.</span></h1>
+                    <p class="text-lg text-slate-400 max-w-xl">Dunya capinda 40 farkli istirakimizle enerjiden finansa, teknolojiden lojitige gelecegi sekillendiren devasa bir ekosistemi yonetiyoruz.</p>
+                    <div class="flex space-x-4">
+                        <button class="bg-white text-black px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-sky-500 hover:text-white transition-all">Kurumsal Kimlik</button>
+                        <button class="border border-slate-700 text-focus px-10 py-4 font-bold text-xs uppercase tracking-widest hover:bg-slate-800 transition-all">2025 Raporu</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
 
-    <!-- Hisse Senedi & Finansal Veriler (Canli Gorunum) -->
-    <section id="investor" class="py-10 border-y border-slate-800/50 bg-slate-900/10">
-        <div class="container mx-auto px-10">
-            <div class="flex flex-wrap items-center justify-between gap-8">
-                <div class="flex items-center space-x-12">
-                    <div class="group">
-                        <div class="text-[9px] uppercase font-bold text-slate-500 tracking-widest mb-1">GHOLD (BIST)</div>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-xl font-bold text-focus">₺245.80</span>
-                            <span class="text-[10px] font-bold text-emerald-400">+%2.45</span>
+        <!-- Ar-Ge ve Inovasyon -->
+        <section id="innovation" class="py-24 bg-slate-900/10">
+            <div class="container mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                    <div class="space-y-6">
+                        <h2 class="text-4xl font-bold text-focus uppercase tracking-tight">Ar-Ge ve Inovasyon Merkezi</h2>
+                        <p class="text-slate-400">Her yil ciromuzun %15'ini yeni teknolojilere ayiriyoruz. Yapay zeka ve otonom sistemler uzerine calisan 1200'den fazla muhendisimizle gelecegi kodluyoruz.</p>
+                        <div class="grid grid-cols-2 gap-8 pt-6">
+                            <div class="glass-card p-6">
+                                <div class="text-3xl font-bold text-sky-500 mb-2">450+</div>
+                                <div class="text-[10px] uppercase font-bold tracking-widest">Tescilli Patent</div>
+                            </div>
+                            <div class="glass-card p-6">
+                                <div class="text-3xl font-bold text-sky-500 mb-2">12</div>
+                                <div class="text-[10px] uppercase font-bold tracking-widest">Global Teknopark</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="group">
-                        <div class="text-[9px] uppercase font-bold text-slate-500 tracking-widest mb-1">NASDAQ (ADR)</div>
-                        <div class="flex items-center space-x-2">
-                            <span class="text-xl font-bold text-focus">$12.40</span>
-                            <span class="text-[10px] font-bold text-emerald-400">+%1.12</span>
-                        </div>
-                    </div>
-                    <div class="group">
-                        <div class="text-[9px] uppercase font-bold text-slate-500 tracking-widest mb-1">Piyasa Degeri</div>
-                        <div class="text-xl font-bold text-focus">$24.8B</div>
+                    <div class="rounded-lg overflow-hidden border border-slate-800 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80" alt="Inovasyon" class="w-full opacity-60">
                     </div>
                 </div>
-                <div class="text-[10px] font-bold uppercase tracking-widest text-sky-500 border border-sky-500/20 px-4 py-2 bg-sky-500/5 cursor-pointer hover:bg-sky-500 hover:text-white transition-all">
-                    Yatirimci Sunumu 2026.PDF
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 bg-black px-8 border-t border-slate-900">
+            <div class="container mx-auto text-center space-y-6">
+                <div class="text-xs font-bold uppercase tracking-[0.5em] text-slate-600">Global Holding Group &copy; 2026</div>
+                <div class="flex justify-center space-x-10 text-[10px] font-bold uppercase text-slate-500">
+                    <a href="#" class="hover:text-white transition-colors">Yasal Uyari</a>
+                    <a href="#" class="hover:text-white transition-colors">Bilgi Toplumu Hizmetleri</a>
+                    <a href="#" class="hover:text-white transition-colors">Iletisim</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- LOGIN SAYFASI (Sadece #admin veya #/admin yazildiginda cikar) -->
+    <div id="login-view" class="page-view min-h-screen flex items-center justify-center bg-[#020617] p-6">
+        <div class="w-full max-w-md glass-card p-10 space-y-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-sky-500"></div>
+            <div class="text-center space-y-2">
+                <h2 class="text-2xl font-black text-white uppercase tracking-tighter">Sistem Girisi</h2>
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Yonetici Kimliginizi Dogrulayin</p>
+            </div>
+            <div class="space-y-6">
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Kullanici Adi</label>
+                    <input id="login-user" type="text" placeholder="admin" class="w-full bg-slate-900/50 border border-slate-800 p-3 rounded text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black uppercase text-slate-400 tracking-widest">Sifre</label>
+                    <input id="login-pass" type="password" placeholder="••••••••" class="w-full bg-slate-900/50 border border-slate-800 p-3 rounded text-sm text-white focus:outline-none focus:border-sky-500 transition-colors">
+                </div>
+                <button onclick="handleLogin()" class="w-full bg-sky-600 hover:bg-sky-500 py-4 text-xs font-black uppercase tracking-widest text-white transition-all shadow-lg shadow-sky-500/20">Giris Yap</button>
+                <button onclick="window.location.hash=''" class="w-full text-[9px] font-bold uppercase tracking-widest text-slate-600 hover:text-slate-400 transition-colors">Ana Sayfaya Don</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ADMIN PANELI GORUNUMU -->
+    <div id="admin-view" class="page-view min-h-screen bg-slate-950 p-8">
+        <div class="container mx-auto">
+            <div class="flex justify-between items-center mb-12">
+                <div>
+                    <h1 class="text-3xl font-black text-white tracking-tighter uppercase">Merkezi Yonetim Paneli</h1>
+                    <p class="text-xs text-sky-500 font-bold uppercase tracking-widest mt-1">Sistem Durumu: Aktif / Admin Oturumu</p>
+                </div>
+                <button onclick="logout()" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2 rounded text-[10px] font-bold uppercase tracking-widest transition-all">Güvenli Çıkış</button>
+            </div>
+
+            <!-- GitHub Logo Bolumu -->
+            <div class="flex flex-col items-center justify-center py-16 mb-12 glass-card border-dashed border-2 border-slate-800/50">
+                <div class="github-float bg-white rounded-full p-4 mb-4">
+                    <svg height="64" width="64" viewBox="0 0 16 16" fill="black">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-4xl font-black text-white uppercase tracking-tighter">GitHub Admin Panel</h2>
+                <div class="h-1 w-12 bg-sky-500 mt-4"></div>
+            </div>
+
+            <!-- Dash Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                <div class="glass-card p-6 stat-glow border-l-2 border-l-sky-500">
+                    <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">Aktif Istirakler</div>
+                    <div class="text-4xl font-black text-white">42</div>
+                </div>
+                <div class="glass-card p-6 stat-glow border-l-2 border-l-emerald-500">
+                    <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">Gunluk Ciro (Ort)</div>
+                    <div class="text-4xl font-black text-white">₺8.4M</div>
+                </div>
+                <div class="glass-card p-6 stat-glow border-l-2 border-l-amber-500">
+                    <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">Bekleyen Onaylar</div>
+                    <div class="text-4xl font-black text-white">12</div>
+                </div>
+                <div class="glass-card p-6 stat-glow border-l-2 border-l-rose-500">
+                    <div class="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-2">Sistem Hatasi</div>
+                    <div class="text-4xl font-black text-white">0</div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Sektor Portfolyosu (Daha Sıkı Grid) -->
-    <section id="sectors" class="py-20">
-        <div class="container mx-auto px-10">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="md:col-span-2 space-y-6 pr-10">
-                    <h2 class="text-4xl font-black text-focus leading-tight">Stratejik <br> Yatirim Alanlari</h2>
-                    <p class="text-sm text-slate-400">Risk yonetimi ve surdurulebilir buyume odakli portfoyumuz, dunya ekonomisinin omurgasini olusturan sektorlerde yogunlasmistir.</p>
-                </div>
-                <div class="corporate-card">
-                    <div class="text-sky-500 font-black mb-4">01</div>
-                    <h3 class="text-lg font-bold text-focus mb-3">Enerji</h3>
-                    <p class="text-xs">Guney Dogu Avrupa ve Orta Dogu'nun en buyuk ruzgar ve gunes enerji santralleri isletmecisiyiz.</p>
-                </div>
-                <div class="corporate-card">
-                    <div class="text-sky-500 font-black mb-4">02</div>
-                    <h3 class="text-lg font-bold text-focus mb-3">Savunma</h3>
-                    <p class="text-xs">Otonom sistemler ve ileri malzeme teknolojileri ile ulusal guvenlige katki sagliyoruz.</p>
-                </div>
-                <div class="corporate-card">
-                    <div class="text-sky-500 font-black mb-4">03</div>
-                    <h3 class="text-lg font-bold text-focus mb-3">Lojistik</h3>
-                    <p class="text-xs">Dunya ticaret rotalari uzerindeki 14 stratejik liman ve intermodal tasimacilik agi.</p>
-                </div>
-                <div class="corporate-card">
-                    <div class="text-sky-500 font-black mb-4">04</div>
-                    <h3 class="text-lg font-bold text-focus mb-3">Teknoloji</h3>
-                    <p class="text-xs">Silikon Vadisi ve Berlin merkezli 20'den fazla unicorn girisimin ana yatirimcisiyiz.</p>
-                </div>
-                <div class="corporate-card">
-                    <div class="text-sky-500 font-black mb-4">05</div>
-                    <h3 class="text-lg font-bold text-focus mb-3">Finans</h3>
-                    <p class="text-xs">Dijital bankacilik ve blockchain tabanli varlik yonetimi cozumleri sunuyoruz.</p>
-                </div>
-                <div class="corporate-card">
-                    <div class="text-sky-500 font-black mb-4">06</div>
-                    <h3 class="text-lg font-bold text-focus mb-3">Kimya</h3>
-                    <p class="text-xs">Ileri teknoloji polimerler ve surdurulebilir tarim ilaclari uretimi.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- ROUTING & AUTH SCRIPT -->
+    <script>
+        // URL yonlendirme kontrolu
+        function checkRoute() {
+            const path = window.location.hash;
+            const mainView = document.getElementById('main-view');
+            const loginView = document.getElementById('login-view');
+            const adminView = document.getElementById('admin-view');
 
-    <!-- Tarihce / Zaman Cizelgesi -->
-    <section class="py-20 bg-slate-900/20">
-        <div class="container mx-auto px-10">
-            <div class="text-center mb-16">
-                <div class="text-[10px] uppercase font-black tracking-[0.5em] text-sky-500 mb-4">Mirasimiz</div>
-                <h2 class="text-4xl font-bold text-focus">50 Yillik Basari Hikayesi</h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <div class="relative pl-8 timeline-item">
-                    <div class="text-2xl font-black text-focus mb-2">1976</div>
-                    <div class="text-xs font-bold text-sky-500 uppercase mb-3">Kurulus</div>
-                    <p class="text-[11px] leading-relaxed">Istanbul'da kucuk bir muhendislik ofisi olarak temellerimiz atildi.</p>
-                </div>
-                <div class="relative pl-8 timeline-item">
-                    <div class="text-2xl font-black text-focus mb-2">1994</div>
-                    <div class="text-xs font-bold text-sky-500 uppercase mb-3">Global Acilim</div>
-                    <p class="text-[11px] leading-relaxed">Avrupa ve Orta Dogu pazarlarina ilk stratejik yatirimlar yapildi.</p>
-                </div>
-                <div class="relative pl-8 timeline-item">
-                    <div class="text-2xl font-black text-focus mb-2">2012</div>
-                    <div class="text-xs font-bold text-sky-500 uppercase mb-3">Halka Arz</div>
-                    <p class="text-[11px] leading-relaxed">Borsa Istanbul ve Londra Borsasi'nda es zamanli islem gormeye basladik.</p>
-                </div>
-                <div class="relative pl-8 timeline-item">
-                    <div class="text-2xl font-black text-focus mb-2">2026</div>
-                    <div class="text-xs font-bold text-sky-500 uppercase mb-3">Dijital Devrim</div>
-                    <p class="text-[11px] leading-relaxed">Tum operasyonlarimizi yapay zeka ve blokzincir ile optimize ediyoruz.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            // Tum gorunumleri kapat
+            mainView.classList.remove('active');
+            loginView.classList.remove('active');
+            adminView.classList.remove('active');
 
-    <!-- Yönetim Kurulu / Leadership -->
-    <section id="leadership" class="py-20">
-        <div class="container mx-auto px-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                <h2 class="text-3xl font-black text-focus">Yonetim Kurulu</h2>
-                <p class="text-xs max-w-xs text-right opacity-60">Dunya capinda vizyoner liderler tarafindan yonetilen guclu bir yapi.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="group">
-                    <div class="img-container aspect-[3/4] mb-6 grayscale group-hover:grayscale-0 transition-all">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80" alt="CEO" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-lg font-bold text-focus">Ahmet Globaloğlu</h4>
-                    <p class="text-[10px] uppercase font-bold text-sky-500 tracking-widest">Yonetim Kurulu Baskani & CEO</p>
-                </div>
-                <div class="group">
-                    <div class="img-container aspect-[3/4] mb-6 grayscale group-hover:grayscale-0 transition-all">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" alt="CFO" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-lg font-bold text-focus">Elena Rossi</h4>
-                    <p class="text-[10px] uppercase font-bold text-sky-500 tracking-widest">CFO & Yatirim Baskani</p>
-                </div>
-                <div class="group">
-                    <div class="img-container aspect-[3/4] mb-6 grayscale group-hover:grayscale-0 transition-all">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80" alt="CTO" class="w-full h-full object-cover">
-                    </div>
-                    <h4 class="text-lg font-bold text-focus">Dr. Markus Weiss</h4>
-                    <p class="text-[10px] uppercase font-bold text-sky-500 tracking-widest">Teknoloji ve Inovasyon Baskani</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            // Sadece #admin veya #/admin yazildiginda Login veya Admin gosterilir
+            if (path === '#/admin' || path === '#admin') {
+                if(sessionStorage.getItem('gh_logged') === 'true') {
+                    adminView.classList.add('active');
+                    document.title = "GH - Yönetim Paneli";
+                } else {
+                    loginView.classList.add('active');
+                    document.title = "Sistem Girişi";
+                }
+            } else {
+                // Herhangi bir hash yoksa sadece ana sayfa
+                mainView.classList.add('active');
+                document.title = "Global Holding - Enterprise Management";
+            }
+        }
 
-    <!-- Sürdürülebilirlik & Sosyal Sorumluluk -->
-    <section class="py-24 bg-sky-950/10 border-y border-sky-900/20">
-        <div class="container mx-auto px-10 text-center">
-            <div class="max-w-3xl mx-auto space-y-8">
-                <h2 class="text-4xl font-black text-focus leading-tight">Gelecek Nesiller Icin <br> Sifir Karbon Hedefi</h2>
-                <p class="text-slate-400">2035 yilina kadar tum uretim tesislerimizde sifir karbon salinimini taahhut ediyoruz. Dunya sadece bize degil, yarina emanet.</p>
-                <div class="flex flex-wrap justify-center gap-12 pt-6 font-bold text-xs uppercase tracking-[0.2em] text-sky-400">
-                    <div class="flex flex-col items-center">
-                        <span class="text-3xl text-focus mb-2">1.2M</span>
-                        <span>Dikilen Agac</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <span class="text-3xl text-focus mb-2">%100</span>
-                        <span>Geri Donusum</span>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <span class="text-3xl text-focus mb-2">450K</span>
-                        <span>Su Tasarrufu (m3)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        // Giris islemi
+        window.handleLogin = function() {
+            // Basit dogrulama simülasyonu
+            sessionStorage.setItem('gh_logged', 'true');
+            checkRoute();
+        }
 
-    <!-- Global Iletisim & Footer -->
-    <footer id="contact" class="bg-[#020617] pt-24 pb-12">
-        <div class="container mx-auto px-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 border-b border-slate-900 pb-20">
-                <div class="lg:col-span-5 space-y-8">
-                    <div class="text-focus font-black text-3xl tracking-tighter">GLOBAL HOLDING</div>
-                    <p class="text-xs max-w-xs leading-loose opacity-60 uppercase tracking-widest">Buyukdere Caddesi, No: 193, Levent Plaza <br> 34394 Sisli, Istanbul, Turkiye</p>
-                    <div class="flex space-x-8 pt-4">
-                        <a href="#" class="text-xs font-black uppercase text-focus hover:text-sky-500 transition-colors">LinkedIn</a>
-                        <a href="#" class="text-xs font-black uppercase text-focus hover:text-sky-500 transition-colors">Bloomberg</a>
-                        <a href="#" class="text-xs font-black uppercase text-focus hover:text-sky-500 transition-colors">Reuters</a>
-                    </div>
-                </div>
-                <div class="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-10">
-                    <div class="space-y-6">
-                        <h6 class="text-[10px] uppercase font-black tracking-widest text-sky-500">Grup Sirketleri</h6>
-                        <ul class="text-[11px] space-y-4 font-medium uppercase tracking-widest">
-                            <li><a href="#" class="hover:text-white transition-colors">GH Energy</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">GH Defense</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">GH Logistics</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-6">
-                        <h6 class="text-[10px] uppercase font-black tracking-widest text-sky-500">Yatirimci</h6>
-                        <ul class="text-[11px] space-y-4 font-medium uppercase tracking-widest">
-                            <li><a href="#" class="hover:text-white transition-colors">Mali Tablolar</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">Yillik Faaliyet</a></li>
-                            <li><a href="#" class="hover:text-white transition-colors">Genel Kurul</a></li>
-                        </ul>
-                    </div>
-                    <div class="space-y-6">
-                        <h6 class="text-[10px] uppercase font-black tracking-widest text-sky-500">Destek</h6>
-                        <ul class="text-[11px] space-y-4 font-medium uppercase tracking-widest">
-                            <li><a href="#" class="hover:text-white transition-colors">Medya Kiti</a></li>
-                            <li><a href="#" class="hover:text-white transition-all">Iletisim</a></li>
-                            <li><a href="#" class="hover:text-white transition-all">Etik Hattı</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="pt-12 flex flex-col md:flex-row justify-between items-center text-[9px] uppercase tracking-[0.4em] font-black opacity-30">
-                <span>All Rights Reserved &copy; 2026 Global Holding Group</span>
-                <div class="flex space-x-8 mt-6 md:mt-0">
-                    <a href="#">Privacy</a>
-                    <a href="#">Compliance</a>
-                    <a href="#">GDPR / KVKK</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        // Cikis islemi
+        window.logout = function() {
+            sessionStorage.removeItem('gh_logged');
+            window.location.hash = '';
+        }
 
+        window.addEventListener('hashchange', checkRoute);
+        window.addEventListener('load', checkRoute);
+
+        // Bilgi notu
+        console.log("Gizli Giris: Adres sonuna #admin ekleyin.");
+    </script>
 </body>
 </html>
