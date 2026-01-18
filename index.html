@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Holding - Kurumsal Portfolyo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Goz dostu temel ayarlar */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #94a3b8;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Yazi secme rengini ve cizgileri duzeltme */
+        ::selection {
+            background-color: rgba(56, 189, 248, 0.2);
+            color: #f1f5f9;
+        }
+
+        .text-focus {
+            color: #f1f5f9;
+            text-decoration: none !important;
+        }
+
+        /* Resim konteynerlari */
+        .img-container {
+            overflow: hidden;
+            border-radius: 2px;
+            background-color: #1e293b;
+            position: relative;
+        }
+
+        .img-container img {
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.75;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.03);
+            opacity: 0.95;
+        }
+
+        /* Sayfa yapisini sıkılastirma */
+        .grid-tight {
+            gap: 1.5rem;
+        }
+
+        .section-compact {
+            padding: 50px 0;
+        }
+
+        /* Kurumsal kart tasarimlari */
+        .corporate-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            padding: 2.5rem;
+            height: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+        .corporate-card:hover {
+            border-color: #38bdf8;
+        }
+
+        /* Menu ve butonlar */
+        .nav-link {
+            position: relative;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            text-decoration: none !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: #38bdf8;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Performans dostu kaydirma cubugu */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Ust Menu -->
+    <nav class="w-full px-8 py-5 sticky top-0 bg-[#0f172a]/95 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 bg-sky-600 rounded-sm flex items-center justify-center font-bold text-white">G</div>
+                <div class="text-focus font-bold tracking-tighter text-xl">GLOBAL HOLDING</div>
+            </div>
+            
+            <div class="hidden lg:flex space-x-10 uppercase font-semibold">
+                <a href="#vision" class="nav-link text-slate-400 hover:text-white transition-colors">Vizyon</a>
+                <a href="#sectors" class="nav-link text-slate-400 hover:text-white transition-colors">Sektorler</a>
+                <a href="#subsidiaries" class="nav-link text-slate-400 hover:text-white transition-colors">Istirakler</a>
+                <a href="#investor" class="nav-link text-slate-400 hover:text-white transition-colors text-sky-400">Yatirimci</a>
+                <a href="#contact" class="nav-link text-focus">Iletisim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Giris Bolumu -->
+    <header id="vision" class="section-compact pt-12">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6">
+                    <div class="inline-block px-3 py-1 bg-sky-500/10 border border-sky-500/20 rounded-full text-[10px] text-sky-500 font-bold uppercase tracking-widest mb-6">Kuresel Guc, Yerel Deger</div>
+                    <h1 class="text-5xl lg:text-7xl font-bold text-focus mb-8 leading-[1.1] tracking-tighter">
+                        Surdurulebilir <br> Dunya Devrimi.
+                    </h1>
+                    <p class="text-lg mb-10 max-w-xl text-slate-400 leading-relaxed">
+                        Yatirim yaptigimiz her alanda teknolojiyi ve dogayi merkeze alarak, kuresel ekonominin lokomotif holdinglerinden biri olmanin gururunu tasiyoruz.
+                    </p>
+                    <div class="flex items-center gap-6">
+                        <button class="bg-sky-600 hover:bg-sky-700 text-white px-10 py-4 rounded-sm text-xs font-bold uppercase tracking-widest transition-all">Kesfet</button>
+                        <div class="h-px w-12 bg-slate-700"></div>
+                        <span class="text-xs font-semibold uppercase tracking-widest cursor-pointer hover:text-white transition-colors">Faaliyet Raporu</span>
+                    </div>
+                </div>
+                <div class="lg:col-span-6">
+                    <div class="img-container aspect-[16/10] shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80" alt="Holding Ana Bina" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hizli Veri Paneli -->
+    <section class="py-16 border-y border-slate-800 bg-slate-900/40">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10">
+                <div class="space-y-2">
+                    <div class="text-3xl font-bold text-focus">$18.5B</div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-slate-500">Yillik Ciro</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-3xl font-bold text-focus">32</div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-slate-500">Ulke Operasyonu</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-3xl font-bold text-focus">14.000+</div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-slate-500">Nitelikli Is Gucu</div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-3xl font-bold text-focus">%25</div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-slate-500">Yillik Buyume</div>
+                </div>
+                <div class="hidden lg:block space-y-2">
+                    <div class="text-3xl font-bold text-focus">AA+</div>
+                    <div class="text-[10px] uppercase tracking-[0.2em] text-slate-500">Kredi Notu</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sektor Detaylari (Daha Dolu) -->
+    <section id="sectors" class="section-compact">
+        <div class="container mx-auto px-8">
+            <div class="flex items-center justify-between mb-16">
+                <div>
+                    <h2 class="text-4xl font-bold text-focus mb-4">Stratejik Portfoy</h2>
+                    <p class="text-sm max-w-md">Dunya genelinde 4 ana sektor ve 15 farkli alt disiplinde faaliyet gosteriyoruz.</p>
+                </div>
+                <div class="hidden md:block w-32 h-px bg-slate-800"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Enerji Kart -->
+                <div class="corporate-card group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 bg-sky-500/10 flex items-center justify-center text-sky-500 font-bold">01</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Temiz Enerji</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-focus mb-4">Yenilenebilir Enerji Grubu</h3>
+                    <p class="text-sm mb-8 leading-relaxed italic">"Dogadan aldigimizi dogaya geri veriyoruz."</p>
+                    <div class="img-container aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95282fc365d5?auto=format&fit=crop&w=600&q=80" alt="Enerji Yatirimi" class="w-full h-full object-cover">
+                    </div>
+                    <ul class="text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span>-</span> 2.4 GW Ruzgar Kapasitesi</li>
+                        <li class="flex items-center gap-2"><span>-</span> Hibrit Enerji Cozumleri</li>
+                    </ul>
+                </div>
+
+                <!-- Lojistik Kart -->
+                <div class="corporate-card group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 bg-sky-500/10 flex items-center justify-center text-sky-500 font-bold">02</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Global Ag</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-focus mb-4">Lojistik ve Altyapi</h3>
+                    <p class="text-sm mb-8 leading-relaxed italic">"Ticareti kitalar arasi yeniden tanimliyoruz."</p>
+                    <div class="img-container aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="Lojistik Agi" class="w-full h-full object-cover">
+                    </div>
+                    <ul class="text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span>-</span> Akilli Depolama Sistemleri</li>
+                        <li class="flex items-center gap-2"><span>-</span> Otonom Filo Yonetimi</li>
+                    </ul>
+                </div>
+
+                <!-- Teknoloji Kart -->
+                <div class="corporate-card group">
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="w-12 h-12 bg-sky-500/10 flex items-center justify-center text-sky-500 font-bold">03</div>
+                        <div class="text-[10px] text-slate-500 uppercase font-bold tracking-widest">Inovasyon</div>
+                    </div>
+                    <h3 class="text-2xl font-bold text-focus mb-4">Teknoloji ve Ar-Ge</h3>
+                    <p class="text-sm mb-8 leading-relaxed italic">"Gelecegin yazilimini bugunden uretiyoruz."</p>
+                    <div class="img-container aspect-video mb-6 grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Teknoloji Merkezi" class="w-full h-full object-cover">
+                    </div>
+                    <ul class="text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span>-</span> Yapay Zeka Laboratuvarlari</li>
+                        <li class="flex items-center gap-2"><span>-</span> Siber Guvenlik Altyapisi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Istirakler ve Markalar (Dolu Bolum) -->
+    <section id="subsidiaries" class="py-20 bg-slate-900/20 border-t border-slate-800">
+        <div class="container mx-auto px-8">
+            <h2 class="text-center text-focus font-bold uppercase tracking-[0.4em] text-xs mb-16">Istiraklerimiz ve Markalarimiz</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+                <div class="h-20 bg-slate-800/20 border border-slate-800 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+                    <span class="font-bold text-sm tracking-widest">G-TECH</span>
+                </div>
+                <div class="h-20 bg-slate-800/20 border border-slate-800 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+                    <span class="font-bold text-sm tracking-widest">V-ENERGY</span>
+                </div>
+                <div class="h-20 bg-slate-800/20 border border-slate-800 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+                    <span class="font-bold text-sm tracking-widest">PORT-HUB</span>
+                </div>
+                <div class="h-20 bg-slate-800/20 border border-slate-800 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+                    <span class="font-bold text-sm tracking-widest">ECO-FIN</span>
+                </div>
+                <div class="h-20 bg-slate-800/20 border border-slate-800 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+                    <span class="font-bold text-sm tracking-widest">CORE-LOG</span>
+                </div>
+                <div class="h-20 bg-slate-800/20 border border-slate-800 flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all cursor-pointer">
+                    <span class="font-bold text-sm tracking-widest">NEXT-CITY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Operasyonlar ve Harita Gorunumu -->
+    <section class="section-compact">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="img-container aspect-video shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80" alt="Dunya Haritasi" class="w-full h-full object-cover">
+                </div>
+                <div class="space-y-8">
+                    <h2 class="text-3xl font-bold text-focus">Kuresel Operasyon <br> Mukemmeliyeti</h2>
+                    <p class="text-slate-400">Londra'dan Singapur'a, Istanbul'dan New York'a kadar uzanan stratejik ofislerimizle, her zaman yerinde ve zamaninda cozum uretiyoruz.</p>
+                    <div class="grid grid-cols-2 gap-10">
+                        <div class="border-l-2 border-sky-600 pl-6">
+                            <div class="text-focus font-bold">Avrupa & Orta Dogu</div>
+                            <p class="text-[11px] mt-2">12 Finans Merkezi</p>
+                        </div>
+                        <div class="border-l-2 border-slate-700 pl-6">
+                            <div class="text-focus font-bold">Asya & Amerika</div>
+                            <p class="text-[11px] mt-2">18 Uretim Tesisi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Medya Merkezi (Sıkılasmis) -->
+    <section id="news" class="py-20 border-t border-slate-800">
+        <div class="container mx-auto px-8">
+            <div class="flex justify-between items-end mb-16">
+                <h2 class="text-3xl font-bold text-focus">Holding Guncel</h2>
+                <a href="#" class="text-[10px] uppercase font-bold tracking-widest text-sky-500">Tum Arsiv</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <article class="space-y-4">
+                    <div class="img-container h-48">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-[10px] font-bold text-slate-500 uppercase">Yatirim / 2026</div>
+                    <h4 class="text-focus font-bold hover:text-sky-500 transition-colors cursor-pointer">Yeni Teknoloji Vadisi Projesi Onaylandi</h4>
+                </article>
+                <article class="space-y-4">
+                    <div class="img-container h-48">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-[10px] font-bold text-slate-500 uppercase">Ekonomi / 2026</div>
+                    <h4 class="text-focus font-bold hover:text-sky-500 transition-colors cursor-pointer">Finansal Buyumede %20 Sifir Hata</h4>
+                </article>
+                <article class="space-y-4">
+                    <div class="img-container h-48">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover">
+                    </div>
+                    <div class="text-[10px] font-bold text-slate-500 uppercase">Bilim / 2026</div>
+                    <h4 class="text-focus font-bold hover:text-sky-500 transition-colors cursor-pointer">Yapay Zeka Destekli Lojistik Entegrasyonu</h4>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alt Bolum (Zenginlestirilmis) -->
+    <footer id="contact" class="bg-slate-950 py-20 border-t border-slate-800">
+        <div class="container mx-auto px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
+                <div class="md:col-span-5 space-y-8">
+                    <div class="text-focus font-bold text-2xl tracking-tighter">GLOBAL HOLDING</div>
+                    <p class="text-sm max-w-sm">Yarinin dunyasini bugunden tasarlayan kuresel bir yatirim ve teknoloji gucu. Sadece buyumeyi degil, gelecegi insa etmeyi hedefliyoruz.</p>
+                    <div class="flex space-x-6">
+                        <span class="text-xs uppercase font-bold tracking-widest text-focus cursor-pointer hover:text-sky-500 transition-all">Twitter</span>
+                        <span class="text-xs uppercase font-bold tracking-widest text-focus cursor-pointer hover:text-sky-500 transition-all">LinkedIn</span>
+                        <span class="text-xs uppercase font-bold tracking-widest text-focus cursor-pointer hover:text-sky-500 transition-all">Instagram</span>
+                    </div>
+                </div>
+                <div class="md:col-span-2 space-y-6">
+                    <h5 class="text-focus font-bold text-xs uppercase tracking-widest">Sirket</h5>
+                    <ul class="text-xs space-y-4">
+                        <li><a href="#" class="hover:text-sky-500 transition-all">Yonetim Kurulu</a></li>
+                        <li><a href="#" class="hover:text-sky-500 transition-all">Etik Kodlar</a></li>
+                        <li><a href="#" class="hover:text-sky-500 transition-all">Kariyer</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2 space-y-6">
+                    <h5 class="text-focus font-bold text-xs uppercase tracking-widest">Yatirimci</h5>
+                    <ul class="text-xs space-y-4">
+                        <li><a href="#" class="hover:text-sky-500 transition-all">Finansal Raporlar</a></li>
+                        <li><a href="#" class="hover:text-sky-500 transition-all">Hisse Bilgileri</a></li>
+                        <li><a href="#" class="hover:text-sky-500 transition-all">Duyurular</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-3 space-y-6">
+                    <h5 class="text-focus font-bold text-xs uppercase tracking-widest">Global Iletisim</h5>
+                    <p class="text-xs">Besiktas Plaza, Kat 12 <br> Istanbul, Turkiye</p>
+                    <p class="text-xs text-focus font-bold">+90 (212) 555 00 00</p>
+                </div>
+            </div>
+            <div class="pt-10 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.3em] font-medium opacity-40">
+                <span>&copy; 2026 GLOBAL HOLDING GROUP</span>
+                <div class="flex space-x-10">
+                    <a href="#" class="hover:text-white transition-all">Gizlilik</a>
+                    <a href="#" class="hover:text-white transition-all">Cerezler</a>
+                    <a href="#" class="hover:text-white transition-all">KVKK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
